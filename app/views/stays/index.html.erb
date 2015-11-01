@@ -1,1 +1,9 @@
-<h1><%= @places.inspect %></h1>
+<% @stays.each do |stay| %>
+<div>
+	<h1><%= stay.name %></h1><br />
+	<i><%= stay.address %></i><br />
+	<p><%= stay.description %></p><br />
+</div>
+
+<hr />
+<% end %>
