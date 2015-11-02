@@ -1,9 +1,7 @@
 <% @stays.each do |stay| %>
-<div>
+<div class="ohyeah-box col-xs-10 col-xs-offset-1">
 	<h1><%= stay.name %></h1><br />
-	<i><%= stay.address %></i><br />
+	<i><%= stay.address %></i><br /><br />
 	<p><%= stay.description %></p><br />
 </div>
-
-<hr />
 <% end %>
