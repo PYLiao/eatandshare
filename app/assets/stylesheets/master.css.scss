@@ -14,3 +14,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin:0;
 	padding:0;
 }
+
+body {
+	background: url('/assets/seamless_paper_texture.png');
+	font-family: Frutiger, "Frutiger Linotype", Uniers, Constantia, "Lucida Bright", Lucidabright, Calibri, Georgia, serif;
+}
+
+.navbar.navbar-inverse {
+	background: url('/assets/grey_wash_wall_@2X.png');
+	border-radius: 0;
+	box-shadow: 2px 2px 4px #000000;
+}
