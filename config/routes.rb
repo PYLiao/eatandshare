@@ -1,6 +1,8 @@
 Eatandshare::Application.routes.draw do
 
   root 'stays#index'
+
+  resources :stays
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
