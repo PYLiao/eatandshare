@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 .ohyeah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -24,4 +26,9 @@ body {
 	background: url('/assets/grey_wash_wall_@2X.png');
 	border-radius: 0;
 	box-shadow: 2px 2px 4px #000000;
+}
+
+.navbar-inverse .navbar-brand{
+	color: #FFFEE8;
+	font-family: 'Montserrat', sans-serif;
 }
