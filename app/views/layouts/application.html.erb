@@ -19,16 +19,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Eat&Share</a>
+      <%= link_to 'Eat&Share', root_path, :class => 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link</a></li>
+        <li>
+        	<%= link_to 'New Stay', new_stay_path %>
+        	<i class="glyphicon glyphicon-plus-sign"></i>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+         <li><a href="#">Link</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
