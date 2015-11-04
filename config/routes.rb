@@ -1,5 +1,6 @@
 Eatandshare::Application.routes.draw do
 
+  devise_for :usermodels
   root 'stays#index'
 
   resources :stays

@@ -1,6 +1,6 @@
 class StaysController < ApplicationController
 	def index
-		@stays = Stay.order("name").page(params[:page]).per(4)
+		@stays = Stay.order(created_at: :desc).page(params[:page]).per(4)
 	end
 
 	def new
