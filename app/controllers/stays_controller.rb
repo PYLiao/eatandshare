@@ -10,8 +10,12 @@ class StaysController < ApplicationController
 	end
 
 	def create
-		current_usermodel.stays.create(stay_params)
+		@stay = current_usermodel.stays.create(stay_params)
+		if @stay.valid?
 		redirect_to root_path
+		else
+		render :new, :status => :unprocessable_entity
+		end
 	end
 
 	def show
@@ -32,7 +36,11 @@ class StaysController < ApplicationController
 			return render :text => 'Not Allowed', :status => :forbidden
 		end
 		@stay.update_attributes(stay_params)
-		redirect_to root_path
+		if @stay.valid?
+			redirect_to root_path
+		else
+			render :edit, :status => :unprocessable_entity
+		end
 	end
 
 	def destroy
