@@ -1,4 +1,6 @@
 class StaysController < ApplicationController
+	before_action :authenticate_usermodel!, :only => [:new, :create]
+
 	def index
 		@stays = Stay.order(created_at: :desc).page(params[:page]).per(4)
 	end
@@ -8,7 +10,7 @@ class StaysController < ApplicationController
 	end
 
 	def create
-		Stay.create(stay_params)
+		current_usermodel.stays.create(stay_params)
 		redirect_to root_path
 	end
 

@@ -5,5 +5,9 @@
 	<h1><%= stay.name %></h1><br />
 	<i><%= stay.address %></i><br /><br />
 	<p><%= stay.description %></p><br />
+
+	<% if stay.usermodel.present? %>
+	<small><%= stay.usermodel.email %></small>
+	<% end %>
 </div>
 <% end %>
