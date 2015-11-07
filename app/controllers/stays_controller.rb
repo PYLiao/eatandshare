@@ -1,5 +1,5 @@
 class StaysController < ApplicationController
-	before_action :authenticate_usermodel!, :only => [:new, :create, :edit, :update]
+	before_action :authenticate_usermodel!, :only => [:new, :create, :edit, :update, :destroy]
 
 	def index
 		@stays = Stay.order(created_at: :desc).page(params[:page]).per(4)
@@ -37,6 +37,9 @@ class StaysController < ApplicationController
 
 	def destroy
 		@stay = Stay.find(params[:id])
+		if @stay.usermodel != current_usermodel
+			return render :text => 'Not Allowed', :status => forbidden
+		end
 		@stay.destroy
 		redirect_to root_path
 	end

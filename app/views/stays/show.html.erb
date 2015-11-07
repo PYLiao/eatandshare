@@ -7,7 +7,7 @@
  <div class="pull-right">
  	<% if current_usermodel && current_usermodel == @stay.usermodel %>
 	<%= link_to 'Edit', edit_stay_path(@stay), :class => 'btn btn-warning' %>
-	<% end %>
 	<%= link_to 'Delete', stay_path(@stay), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this?'}, :class => 'btn btn-warning' %>
+	<% end %>
  </div>
 </div>
