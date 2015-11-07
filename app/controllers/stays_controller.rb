@@ -14,6 +14,10 @@ class StaysController < ApplicationController
 		redirect_to root_path
 	end
 
+	def show
+		@stay = Stay.find(params[:id])
+	end
+
 	private
 
 	def stay_params
