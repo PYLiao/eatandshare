@@ -1,5 +1,5 @@
 class StaysController < ApplicationController
-	before_action :authenticate_usermodel!, :only => [:new, :create]
+	before_action :authenticate_usermodel!, :only => [:new, :create, :edit, :update]
 
 	def index
 		@stays = Stay.order(created_at: :desc).page(params[:page]).per(4)
@@ -20,10 +20,17 @@ class StaysController < ApplicationController
 
 	def edit
 		@stay = Stay.find(params[:id])
+
+		if @stay.usermodel != current_usermodel
+			return render :text => 'Not Allowed', :status => :forbidden
+		end
 	end
 
 	def update
 		@stay = Stay.find(params[:id])
+		if @stay.usermodel != current_usermodel
+			return render :text => 'Not Allowed', :status => :forbidden
+		end
 		@stay.update_attributes(stay_params)
 		redirect_to root_path
 	end
