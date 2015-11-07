@@ -4,6 +4,33 @@
  <i><%= @stay.address %></i>
  <br/><br/>
  <p><%= @stay.description %></p>
+
+ <style>
+      #map {
+        height: 300px;
+      }
+ </style>
+  
+    <script>
+		function initMap() {
+  		var myLatLng = {lat: <%= @stay.latitude %>, lng: <%= @stay.longitude %>};
+
+  		var map = new google.maps.Map(document.getElementById('map'), {
+    		zoom: 12,
+    		center: myLatLng
+  		});
+
+  		var marker = new google.maps.Marker({
+   			position: myLatLng,
+    		map: map,
+    		title: 'Hello World!'
+  		});
+		}
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&signed_in=true&callback=initMap"></script>
+
  <div class="pull-right">
  	<% if current_usermodel && current_usermodel == @stay.usermodel %>
 	<%= link_to 'Edit', edit_stay_path(@stay), :class => 'btn btn-warning' %>
