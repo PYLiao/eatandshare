@@ -28,6 +28,12 @@ class StaysController < ApplicationController
 		redirect_to root_path
 	end
 
+	def destroy
+		@stay = Stay.find(params[:id])
+		@stay.destroy
+		redirect_to root_path
+	end
+
 	private
 
 	def stay_params
