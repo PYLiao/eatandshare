@@ -18,6 +18,10 @@ class StaysController < ApplicationController
 		@stay = Stay.find(params[:id])
 	end
 
+	def edit
+		@stay = Stay.find(params[:id])
+	end
+
 	private
 
 	def stay_params
