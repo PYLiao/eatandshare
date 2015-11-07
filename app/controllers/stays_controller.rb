@@ -22,6 +22,12 @@ class StaysController < ApplicationController
 		@stay = Stay.find(params[:id])
 	end
 
+	def update
+		@stay = Stay.find(params[:id])
+		@stay.update_attributes(stay_params)
+		redirect_to root_path
+	end
+
 	private
 
 	def stay_params
