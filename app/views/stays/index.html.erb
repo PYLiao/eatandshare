@@ -9,5 +9,18 @@
 	<% if stay.usermodel.present? %>
 	<small><%= stay.usermodel.email %></small>
 	<% end %>
+
+<% if stay.comments.present? %>
+	<div class="col-xs-12">
+      <blockquote>
+        <% if stay.comments.last.humanized_rating.present? %>
+        <b><%= stay.comments.humanized_rating %></b> -
+        <% end %>
+        <%= stay.comments.last.message %>
+        <small><%= stay.comments.last.usermodel.email %></small>
+      </blockquote>
+  </div>
+  <% end %>
+
 </div>
 <% end %>
