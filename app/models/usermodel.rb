@@ -5,4 +5,5 @@ class Usermodel < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
          has_many :stays
+         has_many :comments
 end
