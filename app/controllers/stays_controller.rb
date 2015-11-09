@@ -21,6 +21,7 @@ class StaysController < ApplicationController
 	def show
 		@stay = Stay.find(params[:id])
 		@comment = Comment.new
+		@photo = Photo.new
 	end
 
 	def edit

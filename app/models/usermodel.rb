@@ -6,4 +6,5 @@ class Usermodel < ActiveRecord::Base
 
          has_many :stays
          has_many :comments
+         has_many :photos
 end
