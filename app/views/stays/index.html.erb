@@ -10,6 +10,15 @@
 	<small><%= stay.usermodel.email %></small>
 	<% end %>
 
+  <% if stay.photos.present? %>
+    <% place.photo.each do |photo| %>
+    <div class="col-xs-12">
+      <%= image_tag photo.picture %>
+      <%= photo.caption %>
+    </div>
+    <% end %>
+  <% end %>
+
 <% if stay.comments.present? %>
 	<div class="col-xs-12">
       <blockquote>

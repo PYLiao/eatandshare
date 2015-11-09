@@ -35,6 +35,19 @@
         <% end %>
         <br />
 
+<% @stay.photos.each do |photo| %>
+<div class="ohyeah-box col-xs-12 col-sm-6">
+  <%= image_tag photo.picture %>
+  <br />
+  <%= photo.caption %>
+  </div>
+<% end %>
+
+<div class="clear"></div>
+
+<br />
+
+
  <div class="pull-right">
  	<% if current_usermodel && current_usermodel == @stay.usermodel %>
 	<%= link_to 'Edit', edit_stay_path(@stay), :class => 'btn btn-warning' %>
@@ -46,7 +59,41 @@
 <div class="clear"></div>
 
 
-<!-- Modal -->
+<!-- Photo Modal -->
+<div class="modal fade" id="myModal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload a Photo</h4>
+      </div>
+        <%= simple_form_for @photo, :url => stay_photos_path(@stay) do |f| %>
+         <div class="modal-body">
+            <%= f.input :picture %>
+            <%= f.input :caption %>
+            <br />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= f.submit "Upload Photos", :class => 'btn btn-warning' %>
+          </div>
+      <% end %> 
+      </div>
+    </div>
+  </div>
+
+<!-- Button trigger modal for photo-->
+<div class="col-xs-10 col-xl-offset-1">
+  <button type="button" class="btn btn-warning btn-lg pull-right" data-toggle="modal" data-target="#myModal_2">
+  Upload Photos
+</button>
+</div>
+
+<div class="clear"></div>
+
+
+
+<!-- comment Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -63,25 +110,19 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <%= f.submit "Add a Comment", :class => 'btn btn-warning' %>
-            <%= f.submit "Upload Photos", :class => 'btn btn-warning' %>
           </div>
       <% end %> 
       </div>
     </div>
   </div>
-</div>
-
-<% @stay.photos.each do |photo| %>
-<div class="ohyeah-box col-xs-12 col-sm-6">
-  <b><%= photo.caption %></b>
-  </div>
-<% end %>
 
 
 
-<div class="col-xs-10 col-xl-offset-1"
+<!-- simply show comment in show page -->
+<div class="col-xs-10 col-xl-offset-1">
   <bold><h1 class="pull-left">Comments</h1></bold>
-  <!-- Button trigger modal -->
+
+  <!-- Button trigger modal for comment-->
   <button type="button" class="btn btn-warning btn-lg pull-right" data-toggle="modal" data-target="#myModal">
   Add a Comment
 </button>
@@ -89,7 +130,7 @@
 
 <div class="clear"></div>
 
-
+<!-- comment loop -->
 <% @stay.comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
       <blockquote>
