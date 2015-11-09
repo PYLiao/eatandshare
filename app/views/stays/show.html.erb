@@ -71,6 +71,14 @@
   </div>
 </div>
 
+<% @stay.photos.each do |photo| %>
+<div class="ohyeah-box col-xs-12 col-sm-6">
+  <b><%= photo.caption %></b>
+  </div>
+<% end %>
+
+
+
 <div class="col-xs-10 col-xl-offset-1"
   <bold><h1 class="pull-left">Comments</h1></bold>
   <!-- Button trigger modal -->
@@ -80,6 +88,7 @@
 </div>
 
 <div class="clear"></div>
+
 
 <% @stay.comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
