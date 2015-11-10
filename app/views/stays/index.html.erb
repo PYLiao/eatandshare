@@ -10,17 +10,18 @@
 	<small><%= stay.usermodel.email %></small>
 	<% end %>
 
+    <br />
+    <br />
+
   <% if stay.photos.present? %>
-    <% place.photo.each do |photo| %>
-    <div class="col-xs-12">
+    <% stay.photos.each do |photo| %>
       <%= image_tag photo.picture %>
+      <div class="clear"></div>
       <%= photo.caption %>
-    </div>
     <% end %>
   <% end %>
 
 <% if stay.comments.present? %>
-	<div class="col-xs-12">
       <blockquote>
         <% if stay.comments.last.humanized_rating.present? %>
         <b><%= stay.comments.last.humanized_rating %></b> -
@@ -28,7 +29,6 @@
         <%= stay.comments.last.message %>
         <small><%= stay.comments.last.usermodel.email %></small>
       </blockquote>
-  </div>
   <% end %>
 
 </div>
