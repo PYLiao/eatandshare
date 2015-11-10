@@ -15,7 +15,7 @@
 
   <% if stay.photos.present? %>
     <% stay.photos.each do |photo| %>
-      <%= image_tag photo.picture %>
+      <%= image_tag photo.picture, :class => "img-responsive center-block" %>
       <div class="clear"></div>
       <%= photo.caption %>
     <% end %>

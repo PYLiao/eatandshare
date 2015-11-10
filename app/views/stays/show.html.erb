@@ -81,7 +81,7 @@
   <!-- photo loop -->
   <div class="ohyeah-box col-xs-8 col-xs-offset-2">
 <% @stay.photos.each do |photo| %>
-  <%= image_tag photo.picture %>
+  <%= image_tag photo.picture, :class => "img-responsive center-block" %>
   <br />
   <%= photo.caption %>
   <div class="clear"></div>
