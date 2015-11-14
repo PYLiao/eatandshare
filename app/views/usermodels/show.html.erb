@@ -28,3 +28,32 @@
 		</blockquote>
 	</div>
 <% end %>
+
+<div class="clear"></div>
+<br /><br />
+<h2 class="text-center">My Places</h2>
+<br /><br />
+
+<% @user.stays.each do |stay| %>
+	<div class="ohyeah-box col-xs-10 col-xs-offset-1">
+		<h1><%= link_to stay.name, stay_path(stay) %></h1><br />
+		<i><%= stay.address %></i><br /><br />
+		<p><%= stay.description %></p><br />
+
+		<% if stay.usermodel.present? %>
+			<small><%= stay.usermodel.email %></small>
+		<% end %>
+
+		<% if stay.comments.present? %>
+		<div class="col-xs-12">
+      		<blockquote>
+        		<% if stay.comments.last.humanized_rating.present? %>
+        			<b><%= stay.comments.last.humanized_rating %></b> -
+        		<% end %>
+       			<%= stay.comments.last.message %>
+        		<small><%= stay.comments.last.usermodel.email %></small>
+      		</blockquote>
+  		</div>
+  <% end %>
+</div>
+<% end %>
