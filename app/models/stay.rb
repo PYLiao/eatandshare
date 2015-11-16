@@ -1,7 +1,7 @@
 class Stay < ActiveRecord::Base
 	belongs_to :usermodel
-	has_many :comments
-	has_many :photos
+	has_many :comments, dependent: :destroy
+	has_many :photos, dependent: :destroy
 	geocoded_by :address
 	after_validation :geocode
 
